@@ -20,13 +20,15 @@ import org.apache.commons.logging.LogFactory;
  */
 public class BasePortlet extends GenericPortlet {
 
-	public void init() throws PortletException {
-		editJSP = getInitParameter("edit-jsp");
-		helpJSP = getInitParameter("help-jsp");
-		viewJSP = getInitParameter("view-jsp");
+	@Override
+    public void init() throws PortletException {
+		this.editJSP = getInitParameter("edit-jsp");
+		this.helpJSP = getInitParameter("help-jsp");
+		this.viewJSP = getInitParameter("view-jsp");
 	}
 
-	public void doDispatch(RenderRequest req, RenderResponse res)
+	@Override
+    public void doDispatch(RenderRequest req, RenderResponse res)
 		throws IOException, PortletException {
 
 		String jspPage = req.getParameter("jspPage");
@@ -39,32 +41,36 @@ public class BasePortlet extends GenericPortlet {
 		}
 	}
 
-	public void doEdit(RenderRequest req, RenderResponse res)
+	@Override
+    public void doEdit(RenderRequest req, RenderResponse res)
 		throws IOException, PortletException {
 
 		if (req.getPreferences() == null) {
 			super.doEdit(req, res);
 		}
 		else {
-			include(editJSP, req, res);
+			include(this.editJSP, req, res);
 		}
 	}
 
-	public void doHelp(RenderRequest req, RenderResponse res)
+	@Override
+    public void doHelp(RenderRequest req, RenderResponse res)
 		throws IOException, PortletException {
 
-		include(helpJSP, req, res);
+		include(this.helpJSP, req, res);
 	}
 
-	public void doView(RenderRequest req, RenderResponse res)
+	@Override
+    public void doView(RenderRequest req, RenderResponse res)
 		throws IOException, PortletException {
 		    
-		include(viewJSP, req, res);
+		include(this.viewJSP, req, res);
 	}
 	    
-    
-	public void processAction(ActionRequest req, ActionResponse res)
+	@Override
+    public void processAction(ActionRequest req, ActionResponse res)
 		throws IOException, PortletException {
+	    // do nothing
 	}
 
 	protected void include(String path, RenderRequest req, RenderResponse res)

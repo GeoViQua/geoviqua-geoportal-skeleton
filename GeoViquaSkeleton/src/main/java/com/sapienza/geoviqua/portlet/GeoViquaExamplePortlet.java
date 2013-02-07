@@ -17,6 +17,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.dom4j.Document;
 import org.dom4j.io.DocumentSource;
+
 import com.sapienza.geoviqua.service.GeoViquaService;
 
 
@@ -29,7 +30,8 @@ public class GeoViquaExamplePortlet extends BasePortlet {
 	private static final String XSL_FILE= "/xsl/documentRecordById.xsl";
 	private static final String param_uuid = "uuid";
 		
-	public void doView(RenderRequest req, RenderResponse res)
+	@Override
+    public void doView(RenderRequest req, RenderResponse res)
 		throws IOException, PortletException {
 			res.setContentType("text/html");
 	        String[] uuid = req.getParameterValues(param_uuid);

@@ -1,9 +1,5 @@
 package com.sapienza.geoviqua.common;
 
-import java.io.OutputStream;
-
-import org.dom4j.Document;
-
 import com.sapienza.geoportal.chore.common.model.UserGlobalSearch;
 
 /**
@@ -17,7 +13,7 @@ public abstract  class BaseService  {
 	
     
 	public UserGlobalSearch getUserGlobalSearch() {
-		return userGlobalSearch;
+		return this.userGlobalSearch;
 	}
 	public void setUserGlobalSearch(UserGlobalSearch userGlobalSearch) {
 		this.userGlobalSearch = userGlobalSearch;
