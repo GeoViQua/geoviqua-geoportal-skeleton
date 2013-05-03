@@ -1,9 +1,9 @@
  ......
  <servers>	 	
 		<server>
-			<id>ftp-repository</id>
-			<username>webapps</username>
-			<password>hell0</password>
+			<id>sapienza-ftp-repository</id>
+			<username>USER</username>
+			<password>PASS</password>
 		</server>
   </servers>
   .......
